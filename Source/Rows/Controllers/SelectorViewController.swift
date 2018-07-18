@@ -199,8 +199,8 @@ open class _SelectorViewController<Row: SelectableRowType, OptionsRow: OptionsPr
                 
                 if let form = row.section?.form {
                     for section in form where section !== row.section {
-                        let section = section as Any as! SelectableSection<Row>
-                        if let selectedRow = section.selectedRow(), selectedRow !== row {
+                        let section = section as Any as? SelectableSection<Row>
+                        if let selectedRow = section?.selectedRow(), selectedRow !== row {
                             selectedRow.value = nil
                             selectedRow.updateCell()
                         }
